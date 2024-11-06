@@ -42,17 +42,18 @@ def main():
         acronyms = extract_acronyms(transcription)
         
         if acronyms:
-            st.subheader("Found Acronyms:")
+            st.subheader(f"Found {len(acronyms)} Acronyms: {', '.join(acronyms)}")
             
             # Get meanings for each acronym
             for acronym in acronyms:
-                meaning = get_acronym_meanings(acronym, transcription)
+                with st.spinner(f"Getting meaning for {acronym}..."):
+                    meaning = get_acronym_meanings(acronym, transcription)
                 
-                if meaning:
-                    st.write(f"**{acronym}**:")
-                    st.write(f"- {meaning}")
-                else:
-                    st.write(f"**{acronym}**: No common meaning found")
+                    if meaning:
+                        st.write(f"**{acronym}**:")
+                        st.write(f"- {meaning}")
+                    else:
+                        st.write(f"**{acronym}**: No common meaning found")
         else:
             st.info("No acronyms found in the conversation")
 
