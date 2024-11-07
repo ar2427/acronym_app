@@ -22,7 +22,7 @@ def transcribe_audio(audio_bytes):
     return transcript.text
 
 def main():
-    st.title("Live Conversation Acronym Extractor")
+    st.title("Acronym Extractor")
     
     # Audio recording
     st.write("Click below to record audio:")
