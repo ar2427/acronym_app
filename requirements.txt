@@ -2,3 +2,5 @@ streamlit
 openai
 requests
 wikipedia
+audio-recorder-streamlit
+beautifulsoup4
